@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class CategoryController extends Controller
 {
@@ -48,7 +46,7 @@ class CategoryController extends Controller
             Category::create($request->validated());
         }
 
-        return new JsonResponse(['status' => true],201);
+        return new JsonResponse(['status' => true], 201);
     }
 
     /**
@@ -70,7 +68,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return Category::where('id',$id)->get();
+        return Category::where('id', $id)->get();
     }
 
     /**
@@ -99,6 +97,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return new JsonResponse(['status' => true] , 200);
+        return new JsonResponse(['status' => true], 200);
     }
 }

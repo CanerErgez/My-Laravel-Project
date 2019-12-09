@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use App\Product;
-use App\User;
 use Illuminate\Http\JsonResponse;
 
 class ProductController extends Controller
@@ -38,7 +37,9 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        if (!$request->has('category_id')) return new JsonResponse(['status' => false , 'message' => "categoty_id Not Found"], 422);
+        if (!$request->has('category_id')) {
+            return new JsonResponse(['status' => false , 'message' => "categoty_id Not Found"], 422);
+        }
 
         $product = new Product();
 
